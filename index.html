@@ -1,595 +1,561 @@
-
 <!DOCTYPE html>
 
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    @font-face {
-      font-family: 'Intro-Bold';
-      src:
-        url('https://ik.imagekit.io/lajz2ta7n/temp/Intro-Semi-Bold.ttf');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'Intro-Light';
-      src: url('https://ik.imagekit.io/lajz2ta7n/temp/Intro-Light.ttf');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'Intro-Semi-Bold';
-      src: url('https://ik.imagekit.io/lajz2ta7n/temp/Intro-Bold.ttf');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Montserrat-Semi-Bold';
-      src: url('https://ik.imagekit.io/lajz2ta7n/temp/Montserrat-SemiBold.otf');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-
-
-    .App {
-      max-width: 1000px;
-      height: 100vh;
-      margin: 0 auto;
-      /* Center the parent div */
-
-    }
-
-    body {
-      background-color: #f0f3f5;
-    }
-
-    .page {
-      width: 100%;
-      height: 100px;
-    }
-
-    /****header ****/
-    .header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      background-color: black;
-      padding-top: 0;
-      overflow: hidden;
-      padding-bottom: 0;
-      padding: .4rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-
-    }
-
-    .header>.img1 {
-      width: 25%;
-    }
-
-    .header>.img2 {
-      padding: 1rem;
-      width: 20%;
-    }
-
-    .logo>.img1 {
-      padding-left: 0;
-      width: 30%;
-    }
-
-    .logo {
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      
-    }
-
-
-
-
-    /****cover**********/
-    .cover {
-      position: relative;
-      width: 100%;
-      max-height: 100vh;
-      overflow: hidden;
-      margin-bottom: -5px;
-      pointer-events: none;
-    }
-
-    .banner-image {
-      width: 100%;
-      height: 25rem;
-    }
-
-    .heading-container {
-      position: absolute;
-      top: 5%;
-      background-color: #ffc10e;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      pointer-events: auto;
-
-    }
-
-    .main-heading {
-      position: relative;
-      color: black;
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-    }
-
-
-    .main-heading>a {
-      position: relative;
-      font-family: 'Montserrat-Semi-Bold';
-      text-decoration: none;
-      color: black;
-      margin-left: 10px;
-      margin-right: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-
-    }
-
-
-    .sub-heading {
-      font-size: 24px;
-      margin-top: 10px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-
-
-    .right-heading-container {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .right-heading-container>img {
-      width: 20rem;
-    }
-
-
-
-    @media (max-width: 1000px) {
-     
-    }
-
-    @media (max-width: 500px) {
-      .right-heading-container>img {
-        width: 15rem;
-        margin-top: 2rem;
-      }
-
-      .main-heading>a {
-        font-size: .7rem;
-      }
-
-      .header>.img1 {
-        padding: 1rem;
-        padding-left: 2rem;
-        width: 30%;
-      }
-
-      .header>.img2 {
-        padding: 1rem;
-        width: 25%;
-      }
-
-      .logo>.img1 {
-        padding-left: 0;
-        width: 30%;
-      }
-
-      .logo>p {
-        font-size: 2px;
-      }
-
-
-    }
-
-    @media (max-width: 350px) {
-
-      .header {
-        padding-right: 1rem;
-      }
-
-      .header>.img2 {
-        width: 50%;
-        margin-right: 1rem;
-      }
-
-      .header>.img1 {
-        width: 50%;
-        margin-right: 1rem;
-      }
-
-      .logo>.img1 {
-        padding: 0;
-        width: 6rem;
-      }
-
-
-    }
-
-    .right-heading {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .right-subheading {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-
-    /*********page-desc **********/
-
-    .intro-heading-container {
-      padding: 2rem;
-      background-color: #ffc10e;
-    }
-
-    .intro-heading {
-      font-size: 1.2rem;
-      line-height: 2rem;
-      font-family: 'Intro-Bold';
-
-    }
-
-
-    /****page-desc ***/
-
-    .page-desc {
-      padding: 2rem;
-      background-color: white;
-    }
-
-    .image-logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      align-items: center;
-      gap: 1rem;
-      padding: 0 1rem;
-    }
-
-    .image-logo-grid>img {
-      width: 100px;
-    }
-
-    @media (max-width: 500px) {
-      .image-logo-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-    }
-
-
-    /*********image-desc-grid***********/
-    .image-text-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      padding: 2rem;
-      padding-top: 0;
-      align-items: flex-start;
-      text-align: justify;
-      background-color: #fff;
-      padding-right: 0;
-    }
-
-    /* Style for the image */
-    .image-text-container>img {
-      width: 90%;
-      height: auto;
-      border: 4px solid #ffc10e;
-    }
-
-    /* Style for the text */
-    .image-text-container>p {
-      content: "";
-      display: inline-block;
-      width: 90%;
-      font-family: 'Intro-Bold';
-      font-size: 1.2rem;
-      line-height: 2rem;
-    }
-
-
-    /*********flex-banner************/
-    .flex-banner {
-      width: auto;
-     padding: 2rem;
-     padding-top: 0;
-     padding-bottom: 0;
-    }
-    .flex_img{
-      position: relative;
-      width: 100%;
-    }
-
-
-
-    /*********para********/
-    .white_bg {
-      background-color: white;
-    }
-
-    .paragraph {
-      text-align: justify;
-      font-family: 'Intro-Bold';
-      line-height: 2rem;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding: 2rem;
-      padding-top: 1rem;
-      padding-bottom: 0;
-    }
-
-    .imge_two_grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      padding: 2rem;
-      grid-gap: 2rem;
-    }
-
-    .imge_two_grid>img {
-      width: 100%;
-      height: 300px;
-      border: 4px solid #ffc10e;
-    }
-
-    /********footer**********/
-    .footer{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .footer>h2 {
-      font-size: 1.8rem;
-      font-weight: bolder;
-      font-family: 'Intro-Bold';
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .footer_grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      padding: 2rem;
-      grid-gap: 2rem;
-    }
-
-    .footer_grid_comp>img {
-      width: 100%;
-      height: 250px;
-      background-position: center center;
-  background-repeat: no-repeat;
-    }
-
-    .footer_grid_comp {
-      text-align: justify;
-    }
-
-    .footer_grid_comp>p {
-      font-family: 'Intro-Bold';
-      line-height: 1.6rem;
-      
-    }
-
-    .footer_grid_comp>p>a {
-      color: #2e81f5;
-    }
-  </style>
-
-</head>
-
-<body>
-  <div class='App'>
-    <div class='page'>
-
-      <div class='header'>
-        <div class='logo'>
-          <img class='img1' src="https://ik.imagekit.io/lajz2ta7n/temp/logo_.png?updatedAt=1691491793275" alt='' onclick="logoClick()" />
-        </div>
-
-
-        <img class='img2' src="https://ik.imagekit.io/lajz2ta7n/temp//2a9178ed-f43e-b901-923b-5cb27df9170b.png"
-          alt='' />
-
-
-      </div>
-
-
-      <div class="cover">
-        <img class="banner-image"
-          src="https://ik.imagekit.io/lajz2ta7n/temp/banner__.jpg"
-          alt="Banner Image" />
-        <div class="heading-container">
-          <div class="main-heading">
-            <a href="https://brigadereap.com/programming">Program </a>
-            | <a href="https://brigadereap.com/startup">Startups </a>
-            | <a href="https://brigadereap.com/investor">Investments </a>
-            | <a href="https://brigadereap.com/event">Events</a>
-
-          </div>
-        </div>
-        <div class="right-heading-container">
-
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/img11.png" alt="" />
-        </div>
-      </div>
-
-
-      <div class='intro-heading-container'>
-        <div class='intro-heading'>
-          <p>After a rigorous selection process, we take great pride in introducing the five
-            exceptional startups that have earned their spot in Cohort 14. These innovative startups
-            represent a diverse range of focus areas, spanning from robotics to alternative
-            materials to hospitality.</p>
-        </div>
-      </div>
-
-
-      <div class='page-desc'>
-
-        <div class='image-logo-grid'>
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp//paving+.jpg" alt="" />
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp//raho.png" alt="" />
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp//Vividobots.png" alt="" />
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp//Spatic.jpg" alt="" />
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp//uniam.png" alt="" />
-        </div>
-
-      </div>
-
-      <div class='white_bg'>
-
-
-
-        <div class="image-text-container">
-          <p class='right_text'>
-            It brings us immense joy to announce the
-            successful onboarding of our latest cohort
-            of groundbreaking PropTech startups.
-            During an intensive two-day induction
-            program, we warmly welcomed them into
-            the vibrant REAP community, offering
-            valuable insights into our program and
-            fostering a sense of camaraderie among
-            our newest members. The induction
-            program culminated in an unforgettable
-          </p>
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/img4.jpeg?updatedAt=1691494466105" alt="Image" />
-
-        </div>
-
-        <div class="image-text-container">
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/img1.jpeg" alt="Image" />
-
-          <p class='left_text'>
-            evening of networking and socialising,
-            where our new cohort had the opportunity to connect with seasoned industry
-            leaders and like-minded entrepreneurs.
-            As we embark on this exciting journey
-            together, we couldn't be more thrilled to
-            have these exceptional startups on board,
-            and we are committed to supporting
-            them wholeheartedly in their pursuit of
-            innovation and growth.
-          </p>
-
-        </div>
-
-
-        <div class='flex-banner'>
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/flex.png" class='flex_img' alt="" />
-        </div>
-
-        <div class='paragraph'>
-          <p>At Reboot@REAP, we achieved a significant milestone in the history of REAP by
-            successfully bringing together all our portfolio companies from across the country.
-            This momentous occasion allowed us to inspire one another and collaboratively
-            brainstorm innovative ways to propel the PropTech ecosystem at scale. The event
-            served as an exceptional platform for accomplished founders and co-founders to
-            connect, collaborate, and share their invaluable experiences.</p>
-
-        </div>
-        <div class='paragraph'>
-          <p>We couldn't have been happier to witness the vibrant synergy as our startups gathered
-            under one roof, exchanging ideas and forging new partnerships that will undoubtedly
-            set the stage for groundbreaking innovations. The opportunity to witness our startups'
-            remarkable growth was truly a pleasure and we take immense pride in the thriving
-            startup community we've cultivated.</p>
-
-        </div>
-
-
-        <div class='imge_two_grid'>
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/img13.jpeg" />
-          <img src="https://ik.imagekit.io/lajz2ta7n/temp/img3.jpeg" />
-
-        </div>
-
-        <div class='footer'>
-          <h2>AWARDS AND RECOGNITION</h2>
-
-          <div class='footer_grid'>
-
-            <div class='footer_grid_comp'>
-              <img src="https://ik.imagekit.io/lajz2ta7n/temp/img7.jpeg" alt="" />
-              <p>
-                Angirus® IND <a href="https://www.angirusind.com">(www.angirusind.com) </a> from
-                our 9th cohort has been prominently
-                featured on the World Economic Forum.
-              </p>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            @font-face {
+                font-family: "Intro-Bold";
+                src: url("https://ik.imagekit.io/lajz2ta7n/temp/Intro-Semi-Bold.ttf");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: "Intro-Light";
+                src: url("https://ik.imagekit.io/lajz2ta7n/temp/Intro-Light.ttf");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: "Intro-Semi-Bold";
+                src: url("https://ik.imagekit.io/lajz2ta7n/temp/Intro-Bold.ttf");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: "Montserrat-Semi-Bold";
+                src: url("https://ik.imagekit.io/lajz2ta7n/temp/Montserrat-SemiBold.otf");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            .App {
+                max-width: 1000px;
+                margin: 0 auto;
+                /* Center the parent div */
+            }
+
+            body {
+                background-color: #f0f3f5;
+            }
+
+            .page {
+                width: 100%;
+                height: 100px;
+            }
+
+            /****header ****/
+            .header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                background-color: black;
+                padding-top: 0;
+                overflow: hidden;
+                padding-bottom: 0;
+                padding: 0.4rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .header > .img1 {
+                width: 25%;
+            }
+
+            .header > .img2 {
+                padding: 1rem;
+                width: 20%;
+            }
+
+            .logo > .img1 {
+                padding-left: 0;
+                width: 30%;
+            }
+
+            .logo {
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /****cover**********/
+            .cover {
+                position: relative;
+                width: 100%;
+                max-height: 100vh;
+                overflow: hidden;
+                margin-bottom: -5px;
+                pointer-events: none;
+            }
+
+            .banner-image {
+                width: 100%;
+                height: 25rem;
+            }
+
+            .heading-container {
+                position: absolute;
+                top: 5%;
+                background-color: #ffc10e;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                pointer-events: auto;
+            }
+
+            .main-heading {
+                position: relative;
+                color: black;
+                padding: 1rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .main-heading > a {
+                position: relative;
+                font-family: "Montserrat-Semi-Bold";
+                text-decoration: none;
+                color: black;
+                margin-left: 10px;
+                margin-right: 10px;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+
+            .sub-heading {
+                font-size: 24px;
+                margin-top: 10px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .right-heading-container {
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                color: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .right-heading-container > img {
+                width: 20rem;
+            }
+
+            @media (max-width: 1000px) {
+            }
+
+            @media (max-width: 500px) {
+                .right-heading-container > img {
+                    width: 15rem;
+                    margin-top: 2rem;
+                }
+
+                .main-heading > a {
+                    font-size: 0.7rem;
+                }
+
+                .header > .img1 {
+                    padding: 1rem;
+                    padding-left: 2rem;
+                    width: 30%;
+                }
+
+                .header > .img2 {
+                    padding: 1rem;
+                    width: 25%;
+                }
+
+                .logo > .img1 {
+                    padding-left: 0;
+                    width: 30%;
+                }
+
+                .logo > p {
+                    font-size: 2px;
+                }
+            }
+
+            @media (max-width: 350px) {
+                .header {
+                    padding-right: 1rem;
+                }
+
+                .header > .img2 {
+                    width: 50%;
+                    margin-right: 1rem;
+                }
+
+                .header > .img1 {
+                    width: 50%;
+                    margin-right: 1rem;
+                }
+
+                .logo > .img1 {
+                    padding: 0;
+                    width: 6rem;
+                }
+            }
+
+            .right-heading {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .right-subheading {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            /*********page-desc **********/
+
+            .intro-heading-container {
+                padding: 2rem;
+                background-color: #ffc10e;
+            }
+
+            .intro-heading {
+                font-size: 1.2rem;
+                line-height: 2rem;
+                font-family: "Intro-Bold";
+            }
+
+            /****page-desc ***/
+
+            .page-desc {
+                padding: 2rem;
+                background-color: white;
+            }
+
+            .image-logo-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                align-items: center;
+                gap: 1rem;
+                padding:1rem;
+                padding-bottom: 0;
+            }
+
+            .image-logo-grid > img {
+                width: 100px;
+            }
+
+            @media (max-width: 500px) {
+                .image-logo-grid {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            /*********image-desc-grid***********/
+            .image-text-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                padding: 2rem;
+                padding-top: 0;
+                align-items: flex-start;
+                text-align: justify;
+                background-color: #fff;
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+
+            /* Style for the image */
+            .image-text-container > img {
+                width: 90%;
+                height: auto;
+                border: 4px solid #ffc10e;
+            }
+
+            /* Style for the text */
+            .image-text-container > p {
+                display: inline-block;
+                width: 90%;
+                font-family: "Intro-Bold";
+                font-size: 1.2rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                line-height: 2rem;
+            }
+
+            /*********flex-banner************/
+            .flex-banner {
+                width: auto;
+                padding: 2rem;
+                padding-top: 1rem;
+                padding-bottom: 0;
+            }
+
+            .flex_img {
+                position: relative;
+                width: 100%;
+            }
+
+            /*********para********/
+            .white_bg {
+                background-color: white;
+            }
+
+            .paragraph {
+                text-align: justify;
+                font-family: "Intro-Bold";
+                line-height: 2rem;
+                margin-bottom: 0;
+                margin-top: 0;
+                padding: 2rem;
+                padding-top: 1rem;
+                font-size: 1.2rem;
+                padding-bottom: 0;
+            }
+
+            .imge_two_grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 2rem;
+                padding-bottom: 0;
+                grid-gap: 2rem;
+            }
+
+            .imge_two_grid > img {
+                width: 100%;
+                height: 300px;
+                border: 4px solid #ffc10e;
+            }
+
+            /********footer**********/
+            .footer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer > h2 {
+                font-size: 1.8rem;
+                font-weight: bolder;
+                font-family: "Intro-Bold";
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .footer_grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 2rem;
+                padding-top: 0;
+                grid-gap: 2rem;
+            }
+
+            .footer_grid_comp > img {
+                width: 100%;
+                height: 250px;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+
+            .footer_grid_comp {
+                text-align: justify;
+            }
+
+            .footer_grid_comp > p {
+                font-family: "Intro-Bold";
+                line-height: 1.6rem;
+                font-size: 1.2rem;
+                margin-top: 1rem;
+            }
+
+            .footer_grid_comp > p > a {
+                color: #2e81f5;
+            }
+
+            .image-para-mobile{
+              display: none;
+            }
+
+            
+            
+            @media (max-width: 800px) {
+                .image-para-desktop{
+                  display: none;
+                }
+
+                .para_mobile_text{
+                  display: none;
+                }
+
+                .image-para-mobile{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 2rem;
+                    padding-bottom: 0;
+                    padding-top: 0;
+                }
+
+                .image-para-mobile>img{
+                  width: 100%;
+                  margin-bottom: 1rem;
+                  border:4px solid #ffc10e;
+                }
+                .image-para-mobile>p{
+                  font-family: 'Intro-Bold';
+                  font-size: 1.2rem;
+                  line-height: 2rem;
+                  margin-bottom: 1rem;
+                  text-align: justify;
+                }
+                .image-text-container>p{
+                  display: none;
+                }
+            }
+
+         
+            
+
+        </style>
+    </head>
+
+    <body>
+        <div class="App">
+            <div class="page">
+                <div class="header">
+                    <div class="logo">
+                        <img class="img1" src="https://ik.imagekit.io/lajz2ta7n/temp/logo_.png?updatedAt=1691491793275" alt="" onclick="logoClick()" />
+                    </div>
+
+                    <img class="img2" src="https://ik.imagekit.io/lajz2ta7n/temp//2a9178ed-f43e-b901-923b-5cb27df9170b.png" alt="" />
+                </div>
+
+                <div class="cover">
+                    <img class="banner-image" src="https://ik.imagekit.io/lajz2ta7n/temp/banner__.jpg" alt="Banner Image" />
+                    <div class="heading-container">
+                        <div class="main-heading">
+                            <a href="https://brigadereap.com/programming">Program </a>
+                            | <a href="https://brigadereap.com/startup">Startups </a> | <a href="https://brigadereap.com/investor">Investments </a> | <a href="https://brigadereap.com/event">Events</a>
+                        </div>
+                    </div>
+                    <div class="right-heading-container">
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/img11.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="intro-heading-container">
+                    <div class="intro-heading">
+                        <p>
+                            After a rigorous selection process, we take great pride in introducing the five exceptional startups that have earned their spot in Cohort 14. These innovative startups represent a diverse range of focus areas,
+                            spanning from robotics to alternative materials to hospitality.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="page-desc">
+                    <div class="image-logo-grid">
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp//paving+.jpg" alt="" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp//raho.png" alt="" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp//Vividobots.png" alt="" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp//Spatic.jpg" alt="" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp//uniam.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="white_bg">
+                    <div class="image-text-container">
+                        <p class="right_text para_mobile_text">
+                            It brings us immense joy to announce the successful onboarding of our latest cohort of groundbreaking PropTech startups. During an intensive two-day induction program, we warmly welcomed them into the vibrant
+                            REAP community, offering valuable insights into our program and fostering a sense of camaraderie among our newest members. The induction program culminated in an unforgettable
+                        </p>
+                        <img class="image-para-desktop" src="https://ik.imagekit.io/lajz2ta7n/temp/img4.jpeg?updatedAt=1691494466105" alt="Image" />
+                    </div>
+
+                    <div class="image-text-container">
+                        <img class="image-para-desktop" src="https://ik.imagekit.io/lajz2ta7n/temp/img1.jpeg" alt="Image" />
+
+                        <p class="left_text para_mobile_text">
+                            evening of networking and socialising, where our new cohort had the opportunity to connect with seasoned industry leaders and like-minded entrepreneurs. As we embark on this exciting journey together, we couldn't
+                            be more thrilled to have these exceptional startups on board, and we are committed to supporting them wholeheartedly in their pursuit of innovation and growth.
+                        </p>
+                    </div>
+                    
+                    <div class="image-para-mobile">
+                        <p>It brings us immense joy to announce the successful onboarding of our latest cohort of groundbreaking PropTech startups. During an intensive two-day induction program, we warmly welcomed them into the vibrant
+                          REAP community, offering valuable insights into our program and fostering a sense of camaraderie among our newest members. The induction program culminated in an unforgettable
+                          evening of networking and socialising, where our new cohort had the opportunity to connect with seasoned industry leaders and like-minded entrepreneurs. As we embark on this exciting journey together, we couldn't
+                          be more thrilled to have these exceptional startups on board, and we are committed to supporting them wholeheartedly in their pursuit of innovation and growth.
+                        </p>
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/img4.jpeg?updatedAt=1691494466105" alt="Image" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/img1.jpeg" alt="Image" />
+                    </div>
+
+                    <div class="flex-banner">
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/flex.png" class="flex_img" alt="" />
+                    </div>
+
+                    <div class="paragraph">
+                        <p>
+                            At Reboot@REAP, we achieved a significant milestone in the history of REAP by successfully bringing together all our portfolio companies from across the country. This momentous occasion allowed us to inspire one
+                            another and collaboratively brainstorm innovative ways to propel the PropTech ecosystem at scale. The event served as an exceptional platform for accomplished founders and co-founders to connect, collaborate, and
+                            share their invaluable experiences.
+                        </p>
+                    </div>
+                    <div class="paragraph">
+                        <p>
+                            We couldn't have been happier to witness the vibrant synergy as our startups gathered under one roof, exchanging ideas and forging new partnerships that will undoubtedly set the stage for groundbreaking
+                            innovations. The opportunity to witness our startups' remarkable growth was truly a pleasure and we take immense pride in the thriving startup community we've cultivated.
+                        </p>
+                    </div>
+
+                    <div class="imge_two_grid">
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/img13.jpeg" />
+                        <img src="https://ik.imagekit.io/lajz2ta7n/temp/img3.jpeg" />
+                    </div>
+
+                    <div class="footer">
+                        <h2>AWARDS AND RECOGNITION</h2>
+
+                        <div class="footer_grid">
+                            <div class="footer_grid_comp">
+                                <img src="https://ik.imagekit.io/lajz2ta7n/temp/img7.jpeg" alt="" />
+                                <p>Angirus® IND <a href="https://www.angirusind.com">(www.angirusind.com) </a> from our 9th cohort has been prominently featured on the World Economic Forum.</p>
+                            </div>
+                            <div class="footer_grid_comp">
+                                <img src="https://ik.imagekit.io/lajz2ta7n/temp/img10.png" alt="" />
+                                <p>
+                                    Two of our portfolio startups, Clairco
+                                    <a href="https://www.clairco.in"> (www.clairco.in)</a> and WEGoT <a href="https://www.wegot.in">(www.wegot.in)</a>
+                                    have successfully made it to the prestigious list of 43 #cleantech startups compiled by Inc42 Media.
+                                </p>
+                            </div>
+                            <div class="footer_grid_comp">
+                                <img src="https://ik.imagekit.io/lajz2ta7n/temp/img5.jpeg?updatedAt=1691496323000" alt="" />
+                                <p>Clairco <a href="https://www.clairco.in"> (www.clairco.in) </a>, a company from our 4th Cohort, has been selected as one of the three winners for the prestigious ALDAR ScaleUp challenge in Dubai.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class='footer_grid_comp'>
-              <img src="https://ik.imagekit.io/lajz2ta7n/temp/img10.png" alt="" />
-              <p>
-                Two of our portfolio startups, Clairco
-                <a href="https://www.clairco.in"> (www.clairco.in)</a> and WEGoT <a href="https://www.wegot.in">(www.wegot.in)</a>
-                have successfully made it to the prestigious
-                list of 43 #cleantech startups compiled by
-                Inc42 Media.
-              </p>
-            </div>
-            <div class='footer_grid_comp'>
-              <img src="https://ik.imagekit.io/lajz2ta7n/temp/img5.jpeg?updatedAt=1691496323000" alt="" />
-              <p>
-                Clairco <a href="https://www.clairco.in"> (www.clairco.in) </a>, a company from
-                our 4th Cohort, has been selected as one
-                of the three winners for the prestigious
-                ALDAR ScaleUp challenge in Dubai.
-              </p>
-            </div>
-
-          </div>
         </div>
 
-
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-
-  </script>
-  <script type="text/javascript">
-    function logoClick(e) {
-      window.open("https://brigadereap.com/");
-    }
-  </script>
-</body>
-
+        <script></script>
+        <script type="text/javascript">
+            function logoClick(e) {
+                window.open("https://brigadereap.com/");
+            }
+        </script>
+    </body>
 </html>
